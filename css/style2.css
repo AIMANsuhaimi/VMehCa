@@ -1,0 +1,156 @@
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #517b87;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use vh for full viewport height */
+}
+
+/* Container class for centering content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 90vh;
+    left: 30vh;
+    padding: 20px; /* Adjust padding for responsiveness */
+    width: 70%;
+}
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    left: 30vh;
+    padding: 20px; /* Adjust padding for responsiveness */
+    width: 70%;
+}
+
+/* Main form container - increased width */
+.form-wrapper {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Increased the width */
+    margin: 20px;
+}
+
+/* Form title */
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Form group for inputs */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Input field styling */
+.input-field {
+    padding: 14px; /* Slightly increased padding for better appearance */
+    margin-bottom: 20px;
+    border: 1px solid #dcdfe6;
+    border-radius: 8px;
+    font-size: 16px; /* Increased font size */
+    background-color: #f4f6f8;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Label styling */
+.input-label {
+    font-size: 16px; /* Increased font size */
+    color: #7f8c8d;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* Submit button styling */
+.submit-button {
+    padding: 16px; /* Increased button padding */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px; /* Increased button font size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+    .form-wrapper {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .input-field, .submit-button {
+        font-size: 14px;
+    }
+}
+
+/* Header styles */
+header {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+    width: 100%;
+}
+
+header .headic {
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 16px; /* Adjust font size for better readability */
+}
+
+header nav ul li a:hover {
+    text-decoration: underline; /* Optional underline on hover */
+}

@@ -1,0 +1,89 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f7;
+    margin: 0;
+    padding: 0;
+}
+
+.main2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.video-container {
+    position: relative;
+    border: 1px solid #ddd;
+    background-color: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+/* Smaller local video in the corner */
+.pip-video {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    object-fit: cover;
+    z-index: 10;
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+.control-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.control-button:hover {
+    background-color: #0056b3;
+}
+
+.control-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
