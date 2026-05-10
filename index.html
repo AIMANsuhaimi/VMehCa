@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#517b87">
+    <meta name="description" content="VMeHCA - Virtual Medical Health Care Assistant">
+    <link rel="stylesheet" href="./css/style.css"> 
+    <link rel="stylesheet" href="./css/premium.css"> 
+    <link rel="manifest" href="./manifest.json">
+    <title>VMeHCA - Virtual Medical Health Care Assistant</title>
+    <link rel="icon" href="./img/tabicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="glass-header">
+        <nav>
+            <div class="logo-container">
+                <!-- Using placeholder if image missing, but preserving original src -->
+                <img class="headic" src="./img/ic.png" alt="VMeHCA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <h2 style="display:none; color: #02244a; margin:0; font-weight: 800;">VMeHCA</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.php">Contact</a></li> <!-- Will convert contact later if needed -->
+                <li><button class="loginbtn premium-btn" id="loginBtn">Login</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Popup Modal for Sign In -->
+    <div id="loginModal" class="modal glass-modal" style="display:none;">
+        <div class="modal-content clay-card">
+            <span class="close" id="closeModal">&times;</span>
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Sign in to your account</p>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="submit-btn premium-btn">Sign In</button>
+                <div id="loginError" class="error-msg" style="display:none; color: #ff4d4d; margin-top:10px;"></div>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1 class="gradient-text">Your Health, <br>Our Priority.</h1>
+                <p>Experience seamless healthcare management with VMeHCA's virtual assistant and online consultation services.</p>
+                <button class="cta-btn premium-btn" onclick="document.getElementById('loginBtn').click()">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper clay-wrapper">
+                    <img class="imgbanner" src="./img/Medical.png" alt="Medical Services" onerror="this.src='https://placehold.co/600x400?text=Medical+Image'">
+                </div>
+            </div>
+        </section>
+
+        <section class="services section-padding">
+            <h2 class="section-title">Our Services</h2>
+            <div class="container grid-container">
+                <div class="service clay-card interactive-card">
+                    <button onclick="window.location.href='onlinecon.html';" class="service-btn">
+                        <div class="icon-container">
+                            <img src="./img/chatbo.jpg" alt="Online Consultation" onerror="this.src='https://placehold.co/100?text=Chatbot'">
+                        </div>
+                        <h3>AI Chatbot</h3>
+                        <p>Get instant answers to your medical queries 24/7.</p>
+                    </button>
+                </div>
+                <!-- Adding placeholders for more services to show premium layout -->
+                <div class="service clay-card interactive-card">
+                    <button onclick="window.location.href='#';" class="service-btn">
+                        <div class="icon-container">
+                            <img src="./img/doctor-icon.png" alt="Doctor" onerror="this.src='https://placehold.co/100?text=Doctor'">
+                        </div>
+                        <h3>Consult a Doctor</h3>
+                        <p>Book virtual appointments with certified professionals.</p>
+                    </button>
+                </div>
+                 <div class="service clay-card interactive-card">
+                    <button onclick="window.location.href='#';" class="service-btn">
+                        <div class="icon-container">
+                            <img src="./img/records-icon.png" alt="Records" onerror="this.src='https://placehold.co/100?text=Records'">
+                        </div>
+                        <h3>Medical Records</h3>
+                        <p>Access your health history securely online.</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>VMeHCA</h2>
+                <p>&copy; 2026 VMeHCA Healthcare. All Rights Reserved.</p>
+            </div>
+            <ul class="social-links">
+                <li><a href="#" class="social-icon">F</a></li>
+                <li><a href="#" class="social-icon">I</a></li>
+                <li><a href="#" class="social-icon">X</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Service Worker Registration & Auth Logic -->
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(err => console.log('SW registration failed:', err));
+            });
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('loginModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const closeBtn = document.getElementById('closeModal');
+
+        loginBtn.onclick = function() {
+            modal.style.display = "flex";
+            // Add a small animation delay class
+            setTimeout(() => {
+                modal.querySelector('.modal-content').classList.add('show');
+            }, 10);
+        }
+
+        closeBtn.onclick = function() {
+            modal.querySelector('.modal-content').classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeBtn.click();
+            }
+        }
+
+        // PWA Simulated Database Login Logic
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const errorMsg = document.getElementById('loginError');
+
+            // Simulated Database using LocalStorage for PWA offline capabilities
+            // In a real PWA without a backend, we pre-populate or register users locally.
+            // Let's allow a dummy login for demonstration.
+            if(user && pass) {
+                localStorage.setItem('vmehca_user', JSON.stringify({ username: user, role: 'patient' }));
+                window.location.href = 'patient/home.html'; // Assuming patient dashboard is converted
+            } else {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Invalid credentials';
+            }
+        });
+    </script>
+</body>
+</html>

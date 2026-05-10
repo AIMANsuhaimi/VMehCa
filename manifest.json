@@ -1,0 +1,21 @@
+{
+  "name": "VMeHCA - Virtual Medical Health Care Assistant",
+  "short_name": "VMeHCA",
+  "description": "Your virtual medical health care assistant and online consultation platform.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f0f4f8",
+  "theme_color": "#02244a",
+  "icons": [
+    {
+      "src": "./img/tabicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/tabicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

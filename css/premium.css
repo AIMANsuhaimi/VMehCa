@@ -1,0 +1,363 @@
+/* Premium UI Styles for VMeHCA - Claymorphism & Glassmorphism */
+
+:root {
+    --primary-color: #02244a;
+    --accent-color: #4aa0d4;
+    --success-color: #78C27F;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --clay-bg: #f0f4f8;
+    --clay-shadow-out: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+    --clay-shadow-in: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+}
+
+body {
+    background: linear-gradient(135deg, #e0eaf5 0%, #f4f7fc 100%);
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Glass Header */
+.glass-header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+    border-radius: 5px;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+/* Premium Buttons */
+.premium-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(74, 160, 212, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.premium-btn:hover {
+    background: #3583a8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 160, 212, 0.6);
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 5%;
+    min-height: 80vh;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 40px;
+    animation: slideInLeft 1s ease forwards;
+}
+
+.gradient-text {
+    font-size: 4rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #02244a, #4aa0d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Claymorphism Hero Image */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    animation: fadeInRight 1s ease forwards;
+}
+
+.clay-wrapper {
+    background: var(--clay-bg);
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: var(--clay-shadow-out);
+    transition: transform 0.3s ease;
+}
+
+.clay-wrapper:hover {
+    transform: scale(1.02);
+}
+
+.clay-wrapper img {
+    border-radius: 30px;
+    width: 100%;
+    max-width: 500px;
+    display: block;
+}
+
+/* Services Section */
+.section-padding {
+    padding: 80px 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Clay Cards */
+.clay-card {
+    background: var(--clay-bg);
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: var(--clay-shadow-out);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.interactive-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 15px 15px 30px #d1d9e6, -15px -15px 30px #ffffff;
+}
+
+.service-btn {
+    background: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: var(--clay-bg);
+    box-shadow: var(--clay-shadow-in);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.icon-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.clay-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.clay-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Modal Styling Overrides */
+.glass-modal {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content.clay-card {
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    padding: 40px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-content .close:hover {
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 15px;
+    background: var(--clay-bg);
+    box-shadow: var(--clay-shadow-in);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+    box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Footer Glass */
+.glass-footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--glass-border);
+    padding: 40px 5%;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--clay-bg);
+    box-shadow: var(--clay-shadow-out);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    .nav-links {
+        display: none; /* In a real app, implement a hamburger menu */
+    }
+    .gradient-text {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/premium.css">
+    <link rel="icon" href="../img/tabicon.png">
+    <title>Patient Dashboard - VMeHCA</title>
+</head>
+<body>
+    <header class="glass-header">
+        <nav>
+            <div class="logo-container">
+                <img class="headic" src="../img/ic.png" alt="VMeHCA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <h2 style="display:none; color: #02244a; margin:0; font-weight: 800;">VMeHCA</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">Dashboard</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button class="logoutbtn premium-btn" onclick="logout()">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="welcomeNotification" class="notification-container clay-card" style="display: none; position:fixed; top:20px; right:20px; z-index:9999;">
+        <button class="close-btn" onclick="this.parentElement.style.display='none';" style="border:none; background:transparent; float:right; font-size:20px; cursor:pointer;">&times;</button>
+        <h4 id="welcomeMessage">Welcome!</h4>
+        <p>We're glad to have you back.</p>
+    </div>
+
+    <main class="section-padding">
+        <h1 class="section-title">Patient Dashboard</h1>
+        
+        <section class="services">
+            <div class="container grid-container">
+                <div class="service clay-card interactive-card">
+                    <button onclick="window.location.href='onlinecon.html';" class="service-btn">
+                        <div class="icon-container">
+                            <img src="../img/on9.jpg" alt="Online Consultation" onerror="this.src='https://placehold.co/100?text=Consult'">
+                        </div>
+                        <h3>Online Consultation</h3>
+                    </button>
+                </div>
+                <div class="service clay-card interactive-card">
+                    <button onclick="window.location.href='appoinhistory.html';" class="service-btn">
+                        <div class="icon-container">
+                            <img src="../img/rec.jpg" alt="Appointment History" onerror="this.src='https://placehold.co/100?text=History'">
+                        </div>
+                        <h3>Appointment History</h3>
+                    </button>
+                </div>
+                <div class="service clay-card interactive-card">
+                    <button class="service-btn">
+                        <div class="icon-container">
+                            <img src="../img/chatb.jpg" alt="Patient Chatbot" onerror="this.src='https://placehold.co/100?text=Chatbot'">
+                        </div>
+                        <h3>Patient Chatbot</h3>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>VMeHCA</h2>
+                <p>&copy; 2026 VMeHCA Healthcare. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check authentication
+        const userData = localStorage.getItem('vmehca_user');
+        if (!userData) {
+            window.location.href = '../index.html';
+        } else {
+            const user = JSON.parse(userData);
+            const welcomeNotif = document.getElementById('welcomeNotification');
+            document.getElementById('welcomeMessage').textContent = 'Welcome, ' + user.username + '!';
+            welcomeNotif.style.display = 'block';
+            
+            setTimeout(() => {
+                welcomeNotif.style.display = 'none';
+            }, 5000);
+        }
+
+        function logout() {
+            localStorage.removeItem('vmehca_user');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>
